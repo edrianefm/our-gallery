@@ -15,6 +15,20 @@
     margin: 0;
 }
 
+.album-content {
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+
+.polaroid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .polaroid {
     background: white;
     padding: 10px;
@@ -56,11 +70,19 @@
     text-align: center;
 }
 
+.back-link-container {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+
 
     </style>
 </head>
 <body>
-
+    <div class="album-content">
+        <div class="polaroid-container">
     <div class="polaroid">
         <img src="img/1.jpg" alt="Image 1">
         <div class="caption"></div>
@@ -101,10 +123,10 @@
         <img src="img/11.jpg" alt="Image 2">
         <div class="caption"></div>
     </div>
-
-    <div>
+    </div>
+    <div class="back-link-container">
         <a href="./" class="back-link">Back to Albums</a>
     </div>
-    
+    </div>
 </body>
 </html>
