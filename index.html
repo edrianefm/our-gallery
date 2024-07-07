@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niane's Album</title>
+    <title>Niane's Gallery</title>
     <style>
         body {
     background-color: black;
@@ -39,13 +39,21 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 10px; /* Added border radius */
+    transition: transform 0.2s; /* Added transition for hover effect */
 }
+
+.album:hover {
+            transform: scale(1.05); /* Added hover effect */
+        }
+
 
 .album img {
     width: 100%;
     height: auto;
     max-height: 80%;
     object-fit: cover;
+    border-radius: 5px 5px 0 0;
 }
 
 .album-caption {
@@ -54,11 +62,14 @@ h1 {
     width: 100%;
     box-sizing: border-box;
 }
+.us {
+    font-size: medium;
+}
 
     </style>
 </head>
 <body>
-    <h1 align="center">Our Gallery </br><span align="center">(Edriane x Nicole)</span></h1>
+    <h1 align="center">Our Gallery </br><span class="us" align="center">(Edriane x Nicole)</span></h1>
     <div class="album-container">
         <a href="./album1" class="album">
             <img src="img/1st.png" alt="Album 1">
