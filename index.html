@@ -67,10 +67,18 @@ h1 {
     font-size: medium;
 }
 
+#time{
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
     </style>
 </head>
 <body>
     <h1 align="center">Our Gallery </br><span class="us" align="center">(Edriane x Nicole)</span></h1>
+    <h4 id="time">How long we've been together:</h4>
+    <div style="color: pink; font-size: larger;" id="timeSince"></div>
     <div class="album-container">
         <a href="./album1" class="album">
             <img src="img/1st.png" alt="Album 1">
@@ -111,5 +119,31 @@ h1 {
 
         </a>
     </div>
+
+    <div id="timeSince"></div>
+<script>
+    function timeSince(date) {
+    const now = new Date();
+    const secondsPast = Math.floor((now - date) / 1000);
+
+    const seconds = secondsPast % 60;
+    const minutes = Math.floor((secondsPast / 60) % 60);
+    const hours = Math.floor((secondsPast / 3600) % 24);
+    const days = Math.floor(secondsPast / 86400);
+
+    return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+}
+
+function updateDisplay() {
+    const startDate = new Date('2024-01-28T00:00:00'); // Set your specific date here
+    document.getElementById('timeSince').textContent = timeSince(startDate);
+}
+
+setInterval(updateDisplay, 1000);
+
+// HTML element where the time will be displayed
+// <div id="timeSince"></div>
+
+</script>
 </body>
 </html>
