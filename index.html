@@ -3,147 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niane's Gallery</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Album Passcode</title>
     <style>
         body {
-    background-color: black;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-}
-
-h1 {
-    margin-top: 20px;
-    font-size: 2em;
-}
-
-.album-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.album {
-    background: white;
-    color: black;
-    text-decoration: none;
-    margin: 20px;
-    width: 250px;
-    height: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 10px; /* Added border radius */
-    transition: transform 0.2s; /* Added transition for hover effect */
-}
-
-.album:hover {
-            transform: scale(1.05); /* Added hover effect */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/892/692/922/howl-s-moving-castle-studio-ghibli-fantasy-art-clouds-daylight-hd-wallpaper-preview.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
         }
 
+        .container {
+            display: flex;
+            align-items: center;
+        }
 
-.album img {
-    width: 100%;
-    height: auto;
-    max-height: 80%;
-    object-fit: cover;
-    border-radius: 5px 5px 0 0;
-}
+        .photos {
+            width: 300px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
 
-.album-caption {
-    padding: 10px 0;
-    background: white;
-    width: 100%;
-    box-sizing: border-box;
-}
-.us {
-    font-size: medium;
-}
+        .photos img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
 
-#time{
-    padding: 10px;
-    border: 1px solid white;
-    border-radius: 20px;
-}
+        .passcode {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .passcode h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        .keypad button {
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .keypad button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .keypad button:active {
+            background-color: #ff6f61;
+            color: white;
+        }
 
     </style>
 </head>
 <body>
-    <h1 align="center">Our Gallery </br><span class="us" align="center">(Edriane x Nicole)</span></h1>
-    <h4 id="time">How long we've been together:</h4>
-    <div style="color: pink; font-size: larger;" id="timeSince"></div>
-    <div class="album-container">
-        <a href="./album1" class="album">
-            <img src="img/1st.png" alt="Album 1">
-            <div class="album-caption">1st pic</div>
-        </a>
-        <a href="./album2" class="album">
-            <img src="img/2nd.png" alt="Album 2">
-            <div class="album-caption">dos</div>
-        </a>
-        <a href="./album3" class="album">
-            <img src="img/random.jpg" alt="Album 3">
-            <div class="album-caption"> <3 </div>
-        </a>
-        <a href="./album4" class="album">
-            <img src="img/album4.png" alt="Album 3">
-            <div class="album-caption"> Date <3 </div>
 
-        </a>
-        <a href="./album5" class="album">
-            <img src="img/album5-cover.png" alt="Album 3">
-            <div class="album-caption"> vroom vroom </div>
-
-        </a>
-        <a href="./album6" class="album">
-            <img src="img/album6-cover.jpg" alt="Album 3">
-            <div class="album-caption"> foodiesss </div>
-
-        </a>
-        <a href="./album7" class="album">
-            <img src="img/album7-cover.jpg" alt="Album 3">
-            <div class="album-caption"> May 13, 2024 - Beach Date </div>
-
-        </a>
-
-        <a href="./album8" class="album">
-            <img src="img/album8-cover.jpg" alt="Album 3">
-            <div class="album-caption"> "Take my hand, take my whole life too" </div>
-
-        </a>
+<div class="container">
+    <div class="photos">
+        <img src="img/lockscreen.jpg" alt="Photos"> <!-- Replace with your image URL -->
     </div>
 
-    <div id="timeSince"></div>
+    <div class="passcode">
+        <h2>Enter Passcode</h2>
+        <div id="display"></div>
+        <div class="keypad">
+            <button onclick="enterNumber('1')">1</button>
+            <button onclick="enterNumber('2')">2</button>
+            <button onclick="enterNumber('3')">3</button>
+            <button onclick="enterNumber('4')">4</button>
+            <button onclick="enterNumber('5')">5</button>
+            <button onclick="enterNumber('6')">6</button>
+            <button onclick="enterNumber('7')">7</button>
+            <button onclick="enterNumber('8')">8</button>
+            <button onclick="enterNumber('9')">9</button>
+            <button onclick="enterNumber('0')">0</button>
+        </div>
+    </div>
+</div>
+
 <script>
-    function timeSince(date) {
-    const now = new Date();
-    const secondsPast = Math.floor((now - date) / 1000);
+    let passcode = '';
 
-    const seconds = secondsPast % 60;
-    const minutes = Math.floor((secondsPast / 60) % 60);
-    const hours = Math.floor((secondsPast / 3600) % 24);
-    const days = Math.floor(secondsPast / 86400);
+    function enterNumber(number) {
+        passcode += number;
+        document.getElementById('display').textContent = '*'.repeat(passcode.length);
 
-    return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
-}
+        if (passcode.length === 4) {
+            checkPasscode();
+        }
+    }
 
-function updateDisplay() {
-    const startDate = new Date('2024-01-28T00:00:00'); // Set your specific date here
-    document.getElementById('timeSince').textContent = timeSince(startDate);
-}
-
-setInterval(updateDisplay, 1000);
-
-// HTML element where the time will be displayed
-// <div id="timeSince"></div>
-
+    function checkPasscode() {
+        const correctPasscode = '0128'; // Set your desired passcode here
+        if (passcode === correctPasscode) {
+            window.location.href = 'main.html'; // Redirect to your gallery page
+        } else {
+            alert('Incorrect passcode. Please try again.');
+            passcode = '';
+            document.getElementById('display').textContent = '';
+        }
+    }
 </script>
+
 </body>
 </html>

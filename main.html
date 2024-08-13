@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niane's Gallery</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #ff6f61; /* Accent color for the title */
+        }
+
+        .us {
+            font-size: medium;
+            font-style: italic;
+            color: #ff8a80; /* Lighter accent color */
+        }
+
+        .album-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .album {
+            background: #ffffff;
+            color: black;
+            text-decoration: none;
+            margin: 20px;
+            width: 250px;
+            height: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 15px; /* Slightly larger border radius */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+        }
+
+        .album:hover {
+            transform: scale(1.08); /* More noticeable hover effect */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+        }
+
+        .album img {
+            width: 100%;
+            height: auto;
+            max-height: 80%;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0; /* Match the container's rounded corners */
+        }
+
+        .album-caption {
+            padding: 10px 0;
+            background: #ffffff;
+            color: #333333;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        #time {
+            padding: 10px 20px;
+            border: 2px solid #ff6f61;
+            border-radius: 25px;
+            margin-bottom: 10px;
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        #timeSince {
+            color: #ff8a80;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Our Gallery</br><span class="us">(Edriane x Nicole)</span></h1>
+    <h4 id="time">How long we've been together:</h4>
+    <div id="timeSince"></div>
+    <div class="album-container">
+        <a href="./album1" class="album">
+            <img src="img/1st.png" alt="Album 1">
+            <div class="album-caption">1st pic</div>
+        </a>
+        <a href="./album2" class="album">
+            <img src="img/2nd.png" alt="Album 2">
+            <div class="album-caption">dos</div>
+        </a>
+        <a href="./album3" class="album">
+            <img src="img/random.jpg" alt="Album 3">
+            <div class="album-caption"> <3 </div>
+        </a>
+        <a href="./album4" class="album">
+            <img src="img/album4.png" alt="Album 3">
+            <div class="album-caption"> Date <3 </div>
+        </a>
+        <a href="./album5" class="album">
+            <img src="img/album5-cover.png" alt="Album 3">
+            <div class="album-caption"> vroom vroom </div>
+        </a>
+        <a href="./album6" class="album">
+            <img src="img/album6-cover.jpg" alt="Album 3">
+            <div class="album-caption"> foodiesss </div>
+        </a>
+        <a href="./album7" class="album">
+            <img src="img/album7-cover.jpg" alt="Album 3">
+            <div class="album-caption"> May 13, 2024 - Beach Date </div>
+        </a>
+        <a href="./album8" class="album">
+            <img src="img/album8-cover.jpg" alt="Album 3">
+            <div class="album-caption"> "Take my hand, take my whole life too" </div>
+        </a>
+    </div>
+
+    <script>
+        function timeSince(date) {
+            const now = new Date();
+            const secondsPast = Math.floor((now - date) / 1000);
+
+            const seconds = secondsPast % 60;
+            const minutes = Math.floor((secondsPast / 60) % 60);
+            const hours = Math.floor((secondsPast / 3600) % 24);
+            const days = Math.floor(secondsPast / 86400);
+
+            return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+        }
+
+        function updateDisplay() {
+            const startDate = new Date('2024-01-28T00:00:00'); // Set your specific date here
+            document.getElementById('timeSince').textContent = timeSince(startDate);
+        }
+
+        setInterval(updateDisplay, 1000);
+    </script>
+</body>
+</html>
