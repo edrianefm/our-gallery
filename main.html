@@ -5,94 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niane's Gallery</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #121212;
+            background: linear-gradient(135deg, #1b1b1b, #3c3c3c);
             color: #f5f5f5;
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         h1 {
             margin-top: 20px;
-            font-size: 2.5em;
-            color: #ff6f61; /* Accent color for the title */
-        }
-
-        .us {
-            font-size: medium;
-            font-style: italic;
-            color: #ff8a80; /* Lighter accent color */
-        }
-
-        .album-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .album {
-            background: #ffffff;
-            color: black;
-            text-decoration: none;
-            margin: 20px;
-            width: 250px;
-            height: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 3.5em;
+            background: -webkit-linear-gradient(45deg, #ff8a80, #ff6f61);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-radius: 15px; /* Slightly larger border radius */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+            line-height: 1.2;
         }
 
-        .album:hover {
-            transform: scale(1.08); /* More noticeable hover effect */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
-        }
-
-        .album img {
-            width: 100%;
-            height: auto;
-            max-height: 80%;
-            object-fit: cover;
-            border-radius: 15px 15px 0 0; /* Match the container's rounded corners */
-        }
-
-        .album-caption {
-            padding: 10px 0;
-            background: #ffffff;
-            color: #333333;
-            width: 100%;
-            box-sizing: border-box;
-            font-weight: bold;
+        .subtitle {
+            font-size: 1.5em;
+            color: #ffccbc;
+            font-weight: 300;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 20px;
         }
 
         #time {
+            font-size: 1.2em;
             padding: 10px 20px;
             border: 2px solid #ff6f61;
             border-radius: 25px;
             margin-bottom: 10px;
             color: #ff6f61;
             font-weight: bold;
+            background-color: #ffccbc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         #timeSince {
-            color: #ff8a80;
-            font-size: 1.2em;
+            font-size: 1.5em;
+            color: #f5f5f5;
             margin-bottom: 30px;
+        }
+
+        .album-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .album {
+            background: #ffffff;
+            color: #333333;
+            text-decoration: none;
+            margin: 0;
+            width: 220px;
+            height: 280px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .album:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .album img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .album-caption {
+            padding: 10px 0;
+            background: #ffffff;
+            color: #ff6f61;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .subtitle {
+                font-size: 1.2em;
+            }
+            #time {
+                font-size: 1em;
+            }
+            .album-container {
+                gap: 10px;
+            }
+            .album {
+                width: 150px;
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1 align="center">Our Gallery</br><span class="us">(Edriane x Nicole)</span></h1>
-    <h4 id="time">How long we've been together:</h4>
+    <h1>Niane's Gallery</h1>
+    <div class="subtitle">(Edriane x Nicole)</div>
+    <div id="time">How long we've been together:</div>
     <div id="timeSince"></div>
+
     <div class="album-container">
         <a href="./album1" class="album">
             <img src="img/1st.png" alt="Album 1">
@@ -107,23 +148,23 @@
             <div class="album-caption"> <3 </div>
         </a>
         <a href="./album4" class="album">
-            <img src="img/album4.png" alt="Album 3">
+            <img src="img/album4.png" alt="Album 4">
             <div class="album-caption"> Date <3 </div>
         </a>
         <a href="./album5" class="album">
-            <img src="img/album5-cover.png" alt="Album 3">
+            <img src="img/album5-cover.png" alt="Album 5">
             <div class="album-caption"> vroom vroom </div>
         </a>
         <a href="./album6" class="album">
-            <img src="img/album6-cover.jpg" alt="Album 3">
+            <img src="img/album6-cover.jpg" alt="Album 6">
             <div class="album-caption"> foodiesss </div>
         </a>
         <a href="./album7" class="album">
-            <img src="img/album7-cover.jpg" alt="Album 3">
+            <img src="img/album7-cover.jpg" alt="Album 7">
             <div class="album-caption"> May 13, 2024 - Beach Date </div>
         </a>
         <a href="./album8" class="album">
-            <img src="img/album8-cover.jpg" alt="Album 3">
+            <img src="img/album8-cover.jpg" alt="Album 8">
             <div class="album-caption"> "Take my hand, take my whole life too" </div>
         </a>
     </div>
@@ -142,7 +183,7 @@
         }
 
         function updateDisplay() {
-            const startDate = new Date('2024-01-28T00:00:00'); // Set your specific date here
+            const startDate = new Date('2024-01-28T00:00:00');
             document.getElementById('timeSince').textContent = timeSince(startDate);
         }
 
