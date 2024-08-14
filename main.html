@@ -126,6 +126,27 @@
                 height: 200px;
             }
         }
+
+        .about-us, .music-playlist, .countdown {
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffccbc;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #3c3c3c;
+        }
+
+        .about-us p, .music-playlist iframe, .countdown {
+            margin-top: 10px;
+        }
+
+        #countdown-timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6f61;
+        }
+
     </style>
 </head>
 <body>
@@ -168,6 +189,18 @@
             <div class="album-caption"> "Take my hand, take my whole life too" </div>
         </a>
     </div>
+    <div class="about-us">
+        <h2>About Us</h2>
+        <p>Hi, we're Edriane and Nicole! Our journey together has been full of love, laughter, and endless adventures. This gallery is a collection of some of our favorite memories together. Thank you for being a part of our story!</p>
+    </div>
+    <div class="music-playlist">
+        <h2>Our Playlist</h2>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4ULHxohTQIXarlK05nZefQ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="countdown">
+        <h2>Time Until Our Anniversary:</h2>
+        <div id="countdown-timer"></div>
+    </div>        
 
     <script>
         function timeSince(date) {
@@ -186,6 +219,32 @@
             const startDate = new Date('2024-01-28T00:00:00');
             document.getElementById('timeSince').textContent = timeSince(startDate);
         }
+
+         // Set the date for the countdown (e.g., next anniversary)
+    var countdownDate = new Date("Jan 28, 2025 00:00:00").getTime();
+
+// Update the countdown every 1 second
+var countdownFunction = setInterval(function() {
+
+    var now = new Date().getTime();
+    var timeLeft = countdownDate - now;
+
+    // Calculate days, hours, minutes, and seconds
+    var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // Display the result
+    document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // If the countdown is over, display some text
+    if (timeLeft < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown-timer").innerHTML = "Happy Anniversary!";
+    }
+}, 1000);
 
         setInterval(updateDisplay, 1000);
     </script>
