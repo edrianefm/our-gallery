@@ -12,10 +12,21 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('https://c4.wallpaperflare.com/wallpaper/892/692/922/howl-s-moving-castle-studio-ghibli-fantasy-art-clouds-daylight-hd-wallpaper-preview.jpg'); /* Replace with your background image URL */
             background-size: cover;
             background-position: center;
-            font-family: Arial, sans-serif;
+            filter: blur(5px);
+            z-index: -1;
         }
 
         .container {
@@ -112,53 +123,54 @@
     </style>
 </head>
 <body>
+    <div class="background"></div> <!-- Background image with blur effect -->
 
-<div class="container">
-    <div class="photos">
-        <img src="img/lockscreen.jpg" alt="Photos"> <!-- Replace with your image URL -->
-    </div>
+    <div class="container">
+        <div class="photos">
+            <img src="img/lockscreen.jpg" alt="Photos"> <!-- Replace with your image URL -->
+        </div>
 
-    <div class="passcode">
-        <h2>Enter Passcode</h2>
-        <div id="display"></div>
-        <div class="keypad">
-            <button onclick="enterNumber('1')">1</button>
-            <button onclick="enterNumber('2')">2</button>
-            <button onclick="enterNumber('3')">3</button>
-            <button onclick="enterNumber('4')">4</button>
-            <button onclick="enterNumber('5')">5</button>
-            <button onclick="enterNumber('6')">6</button>
-            <button onclick="enterNumber('7')">7</button>
-            <button onclick="enterNumber('8')">8</button>
-            <button onclick="enterNumber('9')">9</button>
-            <button onclick="enterNumber('0')">0</button>
+        <div class="passcode">
+            <h2>Enter Passcode</h2>
+            <div id="display"></div>
+            <div class="keypad">
+                <button onclick="enterNumber('1')">1</button>
+                <button onclick="enterNumber('2')">2</button>
+                <button onclick="enterNumber('3')">3</button>
+                <button onclick="enterNumber('4')">4</button>
+                <button onclick="enterNumber('5')">5</button>
+                <button onclick="enterNumber('6')">6</button>
+                <button onclick="enterNumber('7')">7</button>
+                <button onclick="enterNumber('8')">8</button>
+                <button onclick="enterNumber('9')">9</button>
+                <button onclick="enterNumber('0')">0</button>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    let passcode = '';
+    <script>
+        let passcode = '';
 
-    function enterNumber(number) {
-        passcode += number;
-        document.getElementById('display').textContent = '*'.repeat(passcode.length);
+        function enterNumber(number) {
+            passcode += number;
+            document.getElementById('display').textContent = '*'.repeat(passcode.length);
 
-        if (passcode.length === 4) {
-            checkPasscode();
+            if (passcode.length === 4) {
+                checkPasscode();
+            }
         }
-    }
 
-    function checkPasscode() {
-        const correctPasscode = '0128'; // Set your desired passcode here
-        if (passcode === correctPasscode) {
-            window.location.href = 'main.html'; // Redirect to your gallery page
-        } else {
-            alert('Incorrect passcode. Please try again.');
-            passcode = '';
-            document.getElementById('display').textContent = '';
+        function checkPasscode() {
+            const correctPasscode = '0128'; // Set your desired passcode here
+            if (passcode === correctPasscode) {
+                window.location.href = './main'; // Redirect to your gallery page
+            } else {
+                alert('Incorrect passcode. Please try again.');
+                passcode = '';
+                document.getElementById('display').textContent = '';
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>
