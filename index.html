@@ -3,174 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Album Passcode</title>
+    <title>Niane's Gallery</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+       
         body {
-            margin: 0;
-            padding: 0;
+            background-image: url("https://studioghiblimovies.com/wp-content/uploads/2015/02/32-v9mnBmP.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* background: linear-gradient(135deg, #1b1b1b, #3c3c3c); */ 
+            color: #f5f5f5;
+            padding: 15px;
+            
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 3.5em;
+            background: -webkit-linear-gradient(45deg, #ff8a80, #ff6f61);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #ffccbc;
+            font-weight: 300;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        #time {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: 2px solid #ff6f61;
+            border-radius: 25px;
+            margin-bottom: 10px;
+            color: #ff6f61;
+            font-weight: bold;
+            background-color: #ffccbc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        #timeSince {
+            font-size: 1.5em;
+            color: #f5f5f5;
+            margin-bottom: 30px;
+        }
+
+        .album-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
+            margin-top: 30px;
+            gap: 20px;
         }
 
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://c4.wallpaperflare.com/wallpaper/892/692/922/howl-s-moving-castle-studio-ghibli-fantasy-art-clouds-daylight-hd-wallpaper-preview.jpg'); /* Replace with your background image URL */
-            background-size: cover;
-            background-position: center;
-            filter: blur(5px);
-            z-index: -1;
-        }
-
-        .container {
+        .album {
+            background: #ffffff;
+            color: #333333;
+            text-decoration: none;
+            margin: 0;
+            width: 220px;
+            height: 280px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            max-width: 90%;
-            box-sizing: border-box;
-        }
-
-        .photos {
-            width: 100%;
-            max-width: 300px;
-            margin-bottom: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
         }
 
-        .photos img {
+        .album:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .album img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
             object-fit: cover;
+            border-radius: 15px 15px 0 0;
+            transition: opacity 0.3s ease;
         }
 
-        .passcode {
+        .album-caption {
+            padding: 10px 0;
+            background: #ffffff;
+            color: #ff6f61;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .subtitle {
+                font-size: 1.2em;
+            }
+            #time {
+                font-size: 1em;
+            }
+            .album-container {
+                gap: 10px;
+            }
+            .album {
+                width: 150px;
+                height: 200px;
+            }
+        }
+
+        .about-us, .music-playlist, .countdown {
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffccbc;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #3c3c3c;
+        }
+
+        .about-us p, .music-playlist iframe, .countdown {
+            margin-top: 10px;
+        }
+
+        #countdown-timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6f61;
+        }
+        .blur {
+            backdrop-filter: blur(5px); /* blur effect to the backdrop */
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            width: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            visibility: hidden;
+            box-sizing: border-box;
+	}
+
+    /* From Uiverse.io by S4tyendra */ 
+        .container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         }
 
-        .passcode h2 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+        .container .preloader {
+        animation: rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
         }
 
-        .keypad {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
+        @keyframes rotate {
+        50% {
+            transform: rotate(360deg);
         }
 
-        .keypad button {
-            width: 60px;
-            height: 60px;
-            border: none;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.8);
-            font-size: 20px;
-            color: #333;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        100% {
+            transform: rotate(720deg);
+        }
         }
 
-        .keypad button:hover {
-            background-color: rgba(255, 255, 255, 1);
+        .preloader span {
+        --c: #f23f3f;
+        position: absolute;
+        display: block;
+        height: 64px;
+        width: 64px;
+        background: var(--c);
+        border: 1px solid var(--c);
+        border-radius: 100%;
         }
 
-        .keypad button:active {
-            background-color: #ff6f61;
-            color: white;
+        .preloader span:nth-child(1) {
+        transform: translate(-28px, -28px);
+        animation: shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
         }
 
-        @media (min-width: 600px) {
-            .container {
-                flex-direction: row;
-                max-width: 600px;
-            }
-
-            .photos {
-                margin-right: 20px;
-                margin-bottom: 0;
-            }
-
-            .passcode {
-                width: auto;
-            }
+        @keyframes shape_1 {
+        60% {
+            transform: scale(0.4);
         }
+        }
+
+        .preloader span:nth-child(2) {
+        transform: translate(28px, -28px);
+        animation: shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+        }
+
+        @keyframes shape_2 {
+        40% {
+            transform: scale(0.4);
+        }
+        }
+
+        .preloader span:nth-child(3) {
+        position: relative;
+        border-radius: 0px;
+        transform: scale(0.98) rotate(-45deg);
+        animation: shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+        }
+
+        @keyframes shape_3 {
+        50% {
+            border-radius: 100%;
+            transform: scale(0.5) rotate(-45deg);
+        }
+
+        100% {
+            transform: scale(0.98) rotate(-45deg);
+        }
+        }
+
+        .shadow {
+        position: relative;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        height: 16px;
+        width: 64px;
+        border-radius: 50%;
+        background-color: #d9d9d9;
+        border: 1px solid #d9d9d9;
+        animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+        }
+
+        @keyframes shadow {
+        50% {
+            transform: translateX(-50%) scale(0.5);
+            border-color: #f2f2f2;
+        }
+        }
+
+
     </style>
 </head>
 <body>
-    <div class="background"></div> <!-- Background image with blur effect -->
-
-    <div class="container">
-        <div class="photos">
-            <img src="img/lockscreen.jpg" alt="Photos"> <!-- Replace with your image URL -->
+  
+        <div class="container">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="shadow"></div>
         </div>
 
-        <div class="passcode">
-            <h2>Enter Passcode</h2>
-            <div id="display"></div>
-            <div class="keypad">
-                <button onclick="enterNumber('1')">1</button>
-                <button onclick="enterNumber('2')">2</button>
-                <button onclick="enterNumber('3')">3</button>
-                <button onclick="enterNumber('4')">4</button>
-                <button onclick="enterNumber('5')">5</button>
-                <button onclick="enterNumber('6')">6</button>
-                <button onclick="enterNumber('7')">7</button>
-                <button onclick="enterNumber('8')">8</button>
-                <button onclick="enterNumber('9')">9</button>
-                <button onclick="enterNumber('0')">0</button>
-            </div>
-        </div>
+    <div class="blur">       
+    <h1>Niane's Gallery</h1>
+    <div class="subtitle">(Edriane x Nicole)</div>
+    <div id="time">How long we've been together:</div>
+    <div id="timeSince"></div>
+
+    <div class="album-container">
+        <a href="./album1" class="album">
+            <img src="img/1st.png" alt="Album 1" loading="lazy">
+            <div class="album-caption">1st pic</div>
+        </a>
+        <a href="./album2" class="album">
+            <img src="img/2nd.png" alt="Album 2" loading="lazy">
+            <div class="album-caption">dos</div>
+        </a>
+        <a href="./album3" class="album">
+            <img src="img/random.jpg" alt="Album 3" loading="lazy">
+            <div class="album-caption"> <3 </div>
+        </a>
+        <a href="./album4" class="album">
+            <img src="img/album4.png" alt="Album 4" loading="lazy">
+            <div class="album-caption"> Date <3 </div>
+        </a>
+        <a href="./album5" class="album">
+            <img src="img/album5-cover.png" alt="Album 5" loading="lazy">
+            <div class="album-caption"> vroom vroom </div>
+        </a>
+        <a href="./album6" class="album">
+            <img src="img/album6-cover.jpg" alt="Album 6" loading="lazy">
+            <div class="album-caption"> foodiesss </div>
+        </a>
+        <a href="./album7" class="album">
+            <img src="img/album7-cover.jpg" alt="Album 7" loading="lazy">
+            <div class="album-caption"> May 13, 2024 - Beach Date </div>
+        </a>
+        <a href="./album8" class="album">
+            <img src="img/album8-cover.jpg" alt="Album 8" loading="lazy">
+            <div class="album-caption"> "Take my hand, take my whole life too" </div>
+        </a>
     </div>
-
+    <div class="about-us">
+        <h2>About Us</h2>
+        <p>Hi, we're Edriane and Nicole! Our journey together has been full of love, laughter, and endless adventures. This gallery is a collection of some of our favorite memories together. Thank you for being a part of our story!</p>
+    </div>
+    <div class="music-playlist">
+        <h2>Our Playlist</h2>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4ULHxohTQIXarlK05nZefQ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="countdown">
+        <h2>Time Until Our Anniversary:</h2>
+        <div id="countdown-timer"></div>
+    </div>        
+</div>
     <script>
-        let passcode = '';
+        function timeSince(date) {
+            const now = new Date();
+            const secondsPast = Math.floor((now - date) / 1000);
 
-        function enterNumber(number) {
-            passcode += number;
-            document.getElementById('display').textContent = '*'.repeat(passcode.length);
+            const seconds = secondsPast % 60;
+            const minutes = Math.floor((secondsPast / 60) % 60);
+            const hours = Math.floor((secondsPast / 3600) % 24);
+            const days = Math.floor(secondsPast / 86400);
 
-            if (passcode.length === 4) {
-                checkPasscode();
-            }
+            return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
         }
 
-        function checkPasscode() {
-            const correctPasscode = '0128'; // Set your desired passcode here
-            if (passcode === correctPasscode) {
-                window.location.href = './main'; // Redirect to your gallery page
-            } else {
-                alert('Incorrect passcode. Please try again.');
-                passcode = '';
-                document.getElementById('display').textContent = '';
-            }
+        function updateDisplay() {
+            const startDate = new Date('2024-01-28T00:00:00');
+            document.getElementById('timeSince').textContent = timeSince(startDate);
         }
+
+         // Set the date for the countdown (e.g., next anniversary)
+        var countdownDate = new Date("Jan 28, 2025 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var countdownFunction = setInterval(function() {
+
+        var now = new Date().getTime();
+        var timeLeft = countdownDate - now;
+
+        // Calculate days, hours, minutes, and seconds
+        var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Display the result
+        document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // If the countdown is over, display some text
+        if (timeLeft < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown-timer").innerHTML = "Happy Anniversary!";
+        }
+        }, 1000);
+
+          // Loader functionality
+          window.onload = setTimeout(function() {
+            const loader = document.querySelector('.container');
+            const bodyContent = document.querySelector('.blur');
+            loader.style.display = 'none'; // Hide loader
+            bodyContent.style.visibility = 'visible'; // Show content
+        }, 4000);
+
+        setInterval(updateDisplay, 1000);
     </script>
-
 </body>
 </html>
