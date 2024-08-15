@@ -7,16 +7,13 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+       
         body {
-            background: linear-gradient(135deg, #1b1b1b, #3c3c3c);
+            background-image: url("https://studioghiblimovies.com/wp-content/uploads/2015/02/32-v9mnBmP.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* background: linear-gradient(135deg, #1b1b1b, #3c3c3c); */ 
             color: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            padding: 20px;
-            box-sizing: border-box;
         }
 
         h1 {
@@ -146,10 +143,21 @@
             font-weight: bold;
             color: #ff6f61;
         }
+        .blur {
+	  backdrop-filter: blur(5px); /* blur effect to the backdrop */
+      display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            box-sizing: border-box;
+	}
 
     </style>
 </head>
 <body>
+    <div class="blur">
     <h1>Niane's Gallery</h1>
     <div class="subtitle">(Edriane x Nicole)</div>
     <div id="time">How long we've been together:</div>
@@ -157,35 +165,35 @@
 
     <div class="album-container">
         <a href="./album1" class="album">
-            <img src="img/1st.png" alt="Album 1">
+            <img src="img/1st.png" alt="Album 1" loading="lazy">
             <div class="album-caption">1st pic</div>
         </a>
         <a href="./album2" class="album">
-            <img src="img/2nd.png" alt="Album 2">
+            <img src="img/2nd.png" alt="Album 2" loading="lazy">
             <div class="album-caption">dos</div>
         </a>
         <a href="./album3" class="album">
-            <img src="img/random.jpg" alt="Album 3">
+            <img src="img/random.jpg" alt="Album 3" loading="lazy">
             <div class="album-caption"> <3 </div>
         </a>
         <a href="./album4" class="album">
-            <img src="img/album4.png" alt="Album 4">
+            <img src="img/album4.png" alt="Album 4" loading="lazy">
             <div class="album-caption"> Date <3 </div>
         </a>
         <a href="./album5" class="album">
-            <img src="img/album5-cover.png" alt="Album 5">
+            <img src="img/album5-cover.png" alt="Album 5" loading="lazy">
             <div class="album-caption"> vroom vroom </div>
         </a>
         <a href="./album6" class="album">
-            <img src="img/album6-cover.jpg" alt="Album 6">
+            <img src="img/album6-cover.jpg" alt="Album 6" loading="lazy">
             <div class="album-caption"> foodiesss </div>
         </a>
         <a href="./album7" class="album">
-            <img src="img/album7-cover.jpg" alt="Album 7">
+            <img src="img/album7-cover.jpg" alt="Album 7" loading="lazy">
             <div class="album-caption"> May 13, 2024 - Beach Date </div>
         </a>
         <a href="./album8" class="album">
-            <img src="img/album8-cover.jpg" alt="Album 8">
+            <img src="img/album8-cover.jpg" alt="Album 8" loading="lazy">
             <div class="album-caption"> "Take my hand, take my whole life too" </div>
         </a>
     </div>
@@ -201,7 +209,7 @@
         <h2>Time Until Our Anniversary:</h2>
         <div id="countdown-timer"></div>
     </div>        
-
+</div>
     <script>
         function timeSince(date) {
             const now = new Date();
@@ -221,30 +229,30 @@
         }
 
          // Set the date for the countdown (e.g., next anniversary)
-    var countdownDate = new Date("Jan 28, 2025 00:00:00").getTime();
+        var countdownDate = new Date("Jan 28, 2025 00:00:00").getTime();
 
-// Update the countdown every 1 second
-var countdownFunction = setInterval(function() {
+        // Update the countdown every 1 second
+        var countdownFunction = setInterval(function() {
 
-    var now = new Date().getTime();
-    var timeLeft = countdownDate - now;
+        var now = new Date().getTime();
+        var timeLeft = countdownDate - now;
 
-    // Calculate days, hours, minutes, and seconds
-    var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        // Calculate days, hours, minutes, and seconds
+        var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    // Display the result
-    document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
+        // Display the result
+        document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
 
-    // If the countdown is over, display some text
-    if (timeLeft < 0) {
-        clearInterval(countdownFunction);
-        document.getElementById("countdown-timer").innerHTML = "Happy Anniversary!";
-    }
-}, 1000);
+        // If the countdown is over, display some text
+        if (timeLeft < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown-timer").innerHTML = "Happy Anniversary!";
+        }
+        }, 1000);
 
         setInterval(updateDisplay, 1000);
     </script>
